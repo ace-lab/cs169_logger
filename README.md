@@ -13,16 +13,16 @@ The script creates and maintains a hidden directory (.log_cs169) used to keep al
 The script will then make a file within the logging directory (.log_cs169) that contains the output of a git diff from the immediately previous git commit, as well as the stats related to the diff (to make this information more machine-readable). This is the output from the --numstat flag on git diff (ex. "git diff --numstat").
 
 ## Structure of log file
-Filename: "<timestamp>_<hash of latest commit on this branch>".
+Filename: "```timestamp```_````hash of latest commit on this branch````".
   
 This structure was made to make sure that there would be no name collisions in the files leading to nasty git merge conflicts - especially as this is out of the app developers' workflow.
 
 File:
 
-<branch>, <Rails environment which triggered the log event>
+```git branch```, ```Rails environment which triggered the log event```
 
-<git diff output>
+```git diff output```
 
 --
 
-<git diff stats output>
+```git diff stats output```
