@@ -20,9 +20,6 @@ This structure was made to make sure that there would be no name collisions in t
 File:
 
 ```git branch```, ```Rails environment which triggered the log event```
-
 ```git diff output```
-
 --
-
 ```git diff stats output```
