@@ -71,6 +71,7 @@ class TestLogger < Test::Unit::TestCase
         f.write("puts 'abcd'\n")
         f.close
         puts "changed file 1"
+        puts `cat './planning-poker/app/models/activity.rb'`
         sleep 10
         assert(File.directory?(@dir))
         files = Dir.foreach(@dir).select { |x| File.file?("#{@dir}/#{x}") }
