@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+- 2.2.2
+before_install:
+- git clone https://github.com/adnanhemani/planning-poker
+- cp logger.rb planning-poker/config/initializers
+- cd planning-poker
+- git checkout cs169_testing
+- openssl aes-256-cbc -k "$encrypted_key" -in secrets.tar.enc -out secrets.tar -d
+- tar xvf secrets.tar
+- bundle install
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- cd ..
+script:
+- ruby test.rb
