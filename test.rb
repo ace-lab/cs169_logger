@@ -58,21 +58,24 @@ class TestLogger < Test::Unit::TestCase
         f.write("puts 'abcd'\n")
         f.close
         puts "changed file 1"
-        sleep 3
+        sleep 5
         dir = "./planning-poker/.log_cs169"
         assert(File.directory?(dir))
         files = Dir.foreach(dir).select { |x| File.file?("#{dir}/#{x}") }
         puts "assertion file 1"
+        puts files
         assert_equal(1, files.count)
 
         f = File.new('./planning-poker/app/models/efgh.rb', 'w')
         f.write("puts 'efgh'\n")
         f.close
         puts "changed file 2"
-        sleep 3
+        sleep 5
 
+        assert(File.directory?(dir))
         files = Dir.foreach(dir).select { |x| File.file?("#{dir}/#{x}") }
         puts "assertion file 2"
+        puts files
         assert_equal(2, files.count)
 
         Process.kill("HUP", pid)
