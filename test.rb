@@ -3,6 +3,7 @@ require "test/unit"
 class TestLogger < Test::Unit::TestCase
 
     def test_file_created_testenv
+        `rm -r ./planning-poker/.log_cs169`
         `cd planning-poker; bundle exec rspec; cd ..`
         dir = "./planning-poker/.log_cs169"
         assert(File.directory?(dir))
@@ -12,6 +13,7 @@ class TestLogger < Test::Unit::TestCase
     end
 
     def test_adds_to_same_folder
+        `rm -r ./planning-poker/.log_cs169`
         dir = "./planning-poker/.log_cs169"
         `cd planning-poker; bundle exec rspec; cd ..`
         assert(File.directory?(dir))
@@ -25,6 +27,7 @@ class TestLogger < Test::Unit::TestCase
     end
 
     def test_file_name
+        `rm -r ./planning-poker/.log_cs169`
         dir = "./planning-poker/.log_cs169"
         `cd planning-poker; bundle exec rspec; cd ..`
         files = Dir.foreach(dir).select { |x| File.file?("#{dir}/#{x}") }
@@ -34,6 +37,7 @@ class TestLogger < Test::Unit::TestCase
     end
 
     def test_correct_file_content
+        `rm -r ./planning-poker/.log_cs169`
         dir = "./planning-poker/.log_cs169"
         `cd planning-poker; bundle exec rspec; cd ..`
         files = Dir.foreach(dir).select { |x| File.file?("#{dir}/#{x}") }
@@ -44,6 +48,7 @@ class TestLogger < Test::Unit::TestCase
     end
 
     def test_file_created_devenv
+        `rm -r ./planning-poker/.log_cs169`
         pid = fork do 
             exec "cd planning-poker; rails server"
         end
