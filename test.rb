@@ -18,7 +18,7 @@ class TestLogger < Test::Unit::TestCase
         `rm -r ./planning-poker/.log_cs169`
     end
 
-    def test_b_adds_to_same_folder
+    def test_e_adds_to_same_folder
         puts "Starting Logs add to same folder"
         `rm -r ./planning-poker/.log_cs169`
         dir = "./planning-poker/.log_cs169"
@@ -33,21 +33,18 @@ class TestLogger < Test::Unit::TestCase
         `rm -r ./planning-poker/.log_cs169`
     end
 
-    def test_c_file_name
+    def test_b_file_name
         puts "Starting Filenames are of a certain pattern"
         `rm -r ./planning-poker/.log_cs169`
         dir = "./planning-poker/.log_cs169"
         `cd planning-poker; RUBYOPT="-W0" bundle exec rspec; cd ..`
         files = Dir.foreach(dir).select { |x| File.file?("#{dir}/#{x}") }
         file = files[0]
-        puts file
-        puts `cat #{dir}/#{file}`
-        puts Time.now.getutc.to_i
         assert(file.match(/(\d{10})_([a-z0-9]{40}).txt/))
         `rm -r ./planning-poker/.log_cs169`
     end
 
-    def test_d_correct_file_content
+    def test_c_correct_file_content
         puts "Starting Files have a certain pattern"
         `rm -r ./planning-poker/.log_cs169`
         dir = "./planning-poker/.log_cs169"
@@ -59,7 +56,7 @@ class TestLogger < Test::Unit::TestCase
         `rm -r ./planning-poker/.log_cs169`
     end
 
-    def test_e_file_created_devenv
+    def test_d_file_created_devenv
         puts "Starting File Created - Dev Environment"
         `rm -r ./planning-poker/.log_cs169`
         pid = fork do 
