@@ -64,6 +64,7 @@ class TestLogger < Test::Unit::TestCase
         files = Dir.foreach(dir).select { |x| File.file?("#{dir}/#{x}") }
         puts "assertion file 1"
         puts files
+        puts `cat #{files[0]}`
         assert_equal(1, files.count)
 
         f = File.new('./planning-poker/app/models/efgh.rb', 'w')
@@ -76,6 +77,7 @@ class TestLogger < Test::Unit::TestCase
         files = Dir.foreach(dir).select { |x| File.file?("#{dir}/#{x}") }
         puts "assertion file 2"
         puts files
+        puts `cat #{files[0]}`
         assert_equal(2, files.count)
 
         Process.kill("HUP", pid)
