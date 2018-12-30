@@ -63,9 +63,9 @@ class TestLogger < Test::Unit::TestCase
     # Only runs locally since Travis CI is a test environment itself
     def test_e_file_created_devenv
         puts "Starting File Created - Dev Environment"
-        puts Rails.env
+        # puts Rails.env
         pid = fork do 
-            exec "cd planning-poker; rails server"
+            exec "cd planning-poker; RAILS_ENV=development rails server"
         end
 
         sleep 10
