@@ -60,7 +60,6 @@ class TestLogger < Test::Unit::TestCase
         assert(file_str.match(/[a-z0-9_]+, [a-z]+\n.+\n--\n.+/m))
     end
 
-    # Only runs locally since Travis CI is a test environment itself
     def test_e_file_created_devenv
         puts "Starting File Created - Dev Environment"
         # puts Rails.env
