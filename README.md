@@ -1,5 +1,7 @@
 # Logger Script
 
+[![Build Status](https://travis-ci.org/adnanhemani/cs169_logger.svg?branch=master)](https://travis-ci.org/adnanhemani/cs169_logger)
+
 ## Dependencies
 * Listen gem (https://github.com/guard/listen)
 * Git repository initialized
